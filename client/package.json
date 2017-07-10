@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1",
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-bower": "*",
+    "laravel-elixir-sass-compass": "*",
+    "laravel-elixir-serve": "^0.1.1",
+    "laravel-elixir-wiredep": "*"
+  }
+}

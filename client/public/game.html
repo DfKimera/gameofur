@@ -1,0 +1,46 @@
+<section class="wnd-game">
+
+	<div class="board">
+		<div ng-repeat="(rowNum, row) in board" class="board-row">
+			<div ng-repeat="(colNum, cell) in row" class="board-col {{cell.class}}">
+				<span class="coords">{{cell.row}},{{cell.col}}</span>
+				<span class="indicator" ng-show="cell.start">Start: {{cell.start}}</span>
+				<span class="indicator"  ng-show="cell.end">End: {{cell.end}}</span>
+				<span class="indicator"  ng-show="cell.split">Split: {{cell.next | json}}</span>
+			</div>
+		</div>
+
+		<div ng-repeat="player in players">
+			<span ng-repeat="(i, piece) in pieces[player]" ng-show="!piece.isOut && piece.isAlive" ng-click="selectPiece(piece)" class="piece {{piece.player}}" ng-style="{'top': getPieceY(piece) + 'px', 'left': getPieceX(piece) + 'px'}"></span>
+		</div>
+
+		<div class="preview">
+			<span ng-repeat="(i, arrow) in previewArrows" class="preview-arrow {{arrow.direction}}" ng-style="{top: arrow.y + 'px', left: arrow.x + 'px'}"></span>
+		</div>
+	</div>
+
+	<hr />
+
+	<div class="row clearfix">
+		<div class="col-md-6">
+			<div ng-repeat="player in players">
+				<a class="btn btn-lg btn-default player-dice" ng-click="rollDice(player)" ng-class="{current: turn === player}">
+					Dice: {{turn === player ? dice[player] : '-'}}
+				</a>
+
+				<span class="piece {{player}}" ng-repeat="(i, piece) in [] | range: availablePieces[player]" ng-click="addPiece(player)"></span>
+
+				<a class="btn btn-lg btn-info" ng-show="turn === player && dice[player] === 0" ng-click="endTurn()">OK, continue</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+
+			<div ng-repeat="player in players">
+				<span class="btn btn-lg btn-default">Removed: {{removedPieces[player]}}</span>
+				<span class="piece {{player}}" ng-repeat="(i, piece) in [] | range: removedPieces[player]"></span>
+			</div>
+
+		</div>
+	</div>
+
+</section>

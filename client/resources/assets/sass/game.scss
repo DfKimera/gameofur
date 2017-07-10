@@ -1,0 +1,80 @@
+@import 'utils/clearfix';
+//@import 'utils/reset';
+
+* { box-sizing: border-box; }
+.board { position: relative; }
+.board-row { display: block; height: 80px; width: 100%; overflow: hidden; }
+.board-col { display: block; float: left; width: 80px; height: 80px; border: 1px solid #eee; }
+
+.empty { border: none !important; }
+
+.cell {  border: 1px solid #ccc; background-color: bisque; position: relative; text-align: center; line-height: 80px; }
+.cell.rosette { background-color: darksalmon; }
+
+.coords, .indicator { position: absolute; line-height: 12px; font-size: 10px; }
+.coords { top: 3px; right: 3px; color: white; text-align: right; }
+.indicator { bottom: 3px; left: 3px; color: black; }
+
+.piece {
+	display: inline-block;
+
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	border: 1px solid #ccc;
+	vertical-align: middle;
+	cursor: pointer;
+	z-index: 99999;
+}
+
+.board .piece {
+	position: absolute;
+	transition: all 0.5s ease;
+}
+
+.piece.white { background: white; }
+.piece.black { background: black; }
+
+.preview-arrow {
+	position: absolute;
+	display: block;
+	width: 80px;
+	height: 80px;
+}
+
+.preview-arrow::before {
+	position: absolute;
+	display: block;
+	top: 35px;
+	left: -30px;
+	width: 60px;
+	height: 10px;
+	background: green;
+	content: '';
+}
+
+.preview-arrow::after {
+	position: absolute;
+	display: block;
+	top: 20px;
+	right: 40px;
+	width: 20px;
+	height: 20px;
+	border-left: 20px solid green;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	content: '';
+}
+
+.player-dice {
+	opacity: 0.5;
+}
+
+.player-dice.current {
+	opacity: 1;
+	background: greenyellow;
+}
+
+.preview-arrow.left { transform: rotateZ(180deg); }
+.preview-arrow.up { transform: rotateZ(-90deg); }
+.preview-arrow.down { transform: rotateZ(90deg); }

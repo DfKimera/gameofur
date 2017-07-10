@@ -1,0 +1,39 @@
+<section class="wnd-matchmake">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Your nickname</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label for="fld-nickname">Nickname:</label>
+				<input class="form-control" id="fld-nickname" type="text" ng-model="nickname" />
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Play match</div>
+		<div class="panel-body">
+
+			<form class="col-md-6" name="joinRoom" method="POST" action="#" ng-submit="tryJoinRoom()">
+				<div class="form-group">
+					<label for="fld-join-room">Join another player</label>
+					<input class="form-control" id="fld-join-room" type="text" placeholder="Enter the room ID here..." ng-model="join.room_id">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">Join</button>
+				</div>
+			</form>
+
+			<form class="col-md-6" name="createRoom" method="POST" action="#" ng-submit="tryCreateRoom()">
+				<div class="form-group">
+					<label>Start a match</label>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">Create room</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+</section>
