@@ -1,6 +1,4 @@
 .idea
-node_modules
-server/node_modules
-client/node_modules
-client/.sass_cache
 vendor
+node_modules
+client/.sass-cache/
